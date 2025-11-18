@@ -205,15 +205,15 @@ echo $PID | sudo tee /sys/fs/cgroup/mycontainer/cgroup.procs
 When Docker, Podman, CRI-O, containerd, etc. run containers - they write to these files.
 
 ```mermaid
-flowchart TD
+flowchart TD;
 
-A[Kernel] --> B[cgroup2 Virtual Filesystem]
-B --> C[/sys/fs/cgroup]
-C --> D[mycontainer/]
-D --> E[cgroup.procs]
-D --> F[cpu.max]
-D --> G[memory.max]
-D --> H[pids.max]
+A[Kernel] --> B[cgroup2 Virtual Filesystem];
+B --> C[/sys/fs/cgroup];
+C --> D[mycontainer/];
+D --> E[cgroup.procs];
+D --> F[cpu.max];
+D --> G[memory.max];
+D --> H[pids.max];
 
 style B fill:#333,stroke:#555,color:#fff
 style C fill:#1e90ff,stroke:#0a0,color:#fff
@@ -357,9 +357,16 @@ B --> C[BusyBox Source]
 C --> D[Static BusyBox Binary]
 D --> E[Minimal Root Filesystem (~/rootfs)]
 
-style A fill:#222,color:#eee,stroke:#555
-style E fill:#1e6,stroke:#0a0,color:#fff
-style D fill:#444,color:#eee
+style A fill:#222
+color:#eee
+stroke:#555
+
+style E fill:#1e6
+stroke:#0a0
+color:#fff
+
+style D fill:#444
+color:#eee
 ```
 
 ---
