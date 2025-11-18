@@ -122,6 +122,33 @@ user
 uts
 ```
 
+These are namespace handles. i.e., symbolic links to the namespace objects that your current process belongs to.
+
+Think of it like:
+
+> "Show me the individual isolation domains this process is currently attached
+to."
+
+Each file in that directory represents one type of Linux namespace.
+
+### What Each Namespace Represents:
+
+Below is the table of namespaces you’ll see on a modern Debian/Kubernetes-capable kernel.
+
+| File | Meaning | What It Isolates |
+|------|---------|------------------|
+| cgroup | Cgroup Namespace | How processes see their own cgroup hierarchy. |
+| ipc  | IPC Namespace | Shared memory, semaphores, message queues. |
+| mnt  | Mount Namespace | Your filesystem view, mounts, proc, overlayfs, etc. |
+| net  | Network Namespace | Interfaces, routing tables, iptables/nftables, ARP tables. |
+| pid  | PID Namespace | Process IDs (what’s PID 1, what exists, what doesn’t). |
+| pid_for_children | Same namespace but for newly created children | Used when changing PID namespaces only affects children. |
+| time | Time Namespace | Boot time, monotonic clock offsets. |
+| time_for_children | Same thing but inherited by children | How containers isolate time for processes they launch.
+| user | User Namespace | UID/GID mapping, rootless containers. |
+| uts  | UTS Namespace | Hostname + domain name. |
+
+
 ## 3.2 Cgroups v2
 
 ```bash
@@ -141,6 +168,57 @@ ls /sys/fs/cgroup/cgroup.controllers
 ```
 
 If this file exists, you’re good.
+
+`/sys/fs/cgroup` is a virtual filesystem exposed by the kernel that lets userspace:
+
+- read resource usage stats
+- apply resource limits
+- organize processes into groups
+- configure controllers (CPU, memory, IO, pids, etc.)
+
+It is a control API, not a real filesystem. It lets you apply limits.
+
+Example:
+
+limit CPU to 20%
+
+```bash
+echo "20000 100000" | sudo tee /sys/fs/cgroup/mycontainer/cpu.max
+```
+
+limit memory to 256MB
+
+```bash
+echo 268435456 | sudo tee /sys/fs/cgroup/mycontainer/memory.max
+```
+
+limit # of processes
+
+```bash
+echo 128 | sudo tee /sys/fs/cgroup/mycontainer/pids.max
+```
+put a process into that cgroup
+```bash
+echo $PID | sudo tee /sys/fs/cgroup/mycontainer/cgroup.procs
+```
+
+When Docker, Podman, CRI-O, containerd, etc. run containers - they write to these files.
+
+```mermaid
+flowchart TD
+
+A[Kernel] --> B[cgroup2 Virtual Filesystem]
+B --> C[/sys/fs/cgroup]
+C --> D[mycontainer/]
+D --> E[cgroup.procs]
+D --> F[cpu.max]
+D --> G[memory.max]
+D --> H[pids.max]
+
+style B fill:#333,stroke:#555,color:#fff
+style C fill:#1e90ff,stroke:#0a0,color:#fff
+style D fill:#1e6,stroke:#0a0,color:#fff
+```
 
 ## 3.3 OverlayFS
 
