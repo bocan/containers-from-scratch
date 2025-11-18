@@ -180,4 +180,4 @@ Each chapter includes:
 
 Whenever you're ready, let's move on to:
 
-👉 **[Chapter 1 — An Introduction to Containers](./docs/01-what-is-a-container.md)
+👉 **[Chapter 1 — An Introduction to Containers](docs/01-what-is-a-container.md)
