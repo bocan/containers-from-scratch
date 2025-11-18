@@ -38,3 +38,9 @@ But without understanding what’s underneath, debugging or securing containers 
 This project removes guesswork.
 
 --
+
+## Next Steps
+
+Come along now.  Let's get our hands dirty.
+
+👉 **[Chapter 2 — Preparing Your Lab Environment](./docs/02-preparing-environment.md)
