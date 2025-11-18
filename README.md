@@ -1,6 +1,9 @@
 # Containers From Scratch
 ### *A deep, hands-on journey into the core of modern container technology.*
 
+> The Main Site is https://bocan.github.io/containers-from-scratch/ and the open
+> source repo is at https://github.com/bocan/containers-from-scratch.
+
 ---
 
 ## Introduction
