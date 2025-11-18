@@ -352,10 +352,10 @@ This is intentional — next chapters fix this.
 ```mermaid
 flowchart TD
 
-A[Debian Host OS] --> B[Development Tools Installed]
-B --> C[BusyBox Source]
-C --> D[Static BusyBox Binary]
-D --> E[Minimal Root Filesystem (~/rootfs)]
+A[Kernel] --> B(cgroup2 Virtual Filesystem)
+B --> C(/sys/fs/cgroup)
+C --> D(mycontainer/)
+flowchart TD
 
 style A fill:#222
 color:#eee
