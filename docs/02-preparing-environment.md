@@ -390,4 +390,4 @@ sudo chroot ~/mysecondroot /sh
 
 # 👉 Next Chapter
 
-**03 — Building a Minimal Root Filesystem**
+**[Chapter 3 — Building a Minimal Root Filesystem](03-building-rootfs.md)**
