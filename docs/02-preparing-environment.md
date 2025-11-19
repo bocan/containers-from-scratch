@@ -176,49 +176,8 @@ If this file exists, you’re good.
 - organize processes into groups
 - configure controllers (CPU, memory, IO, pids, etc.)
 
-It is a control API, not a real filesystem. It lets you apply limits.
-
-Example:
-
-limit CPU to 20%
-
-```bash
-echo "20000 100000" | sudo tee /sys/fs/cgroup/mycontainer/cpu.max
-```
-
-limit memory to 256MB
-
-```bash
-echo 268435456 | sudo tee /sys/fs/cgroup/mycontainer/memory.max
-```
-
-limit # of processes
-
-```bash
-echo 128 | sudo tee /sys/fs/cgroup/mycontainer/pids.max
-```
-put a process into that cgroup
-```bash
-echo $PID | sudo tee /sys/fs/cgroup/mycontainer/cgroup.procs
-```
-
-When Docker, Podman, CRI-O, containerd, etc. run containers - they write to these files.
-
-```mermaid
-flowchart TD;
-
-A[Kernel] --> B[cgroup2 Virtual Filesystem];
-B --> C[/sys/fs/cgroup];
-C --> D[mycontainer/];
-D --> E[cgroup.procs];
-D --> F[cpu.max];
-D --> G[memory.max];
-D --> H[pids.max];
-
-style B fill:#333,stroke:#555,color:#fff
-style C fill:#1e90ff,stroke:#0a0,color:#fff
-style D fill:#1e6,stroke:#0a0,color:#fff
-```
+We will delve into cgroups more in Chapter 2, but for now, know that it's a
+control API, not a real filesystem and it lets you apply limits.
 
 ## 3.3 OverlayFS
 
@@ -232,7 +191,11 @@ Should display:
 nodev   overlay
 ```
 
-If all the above checks pass, your kernel is ready.
+If it's not there, it's not nessesarily a problem as it may be built as a kernel
+modeule that doesn't load until needed. Try running `sudo modprobe overlay` and
+checking again.  If it's there now, you're good to go.
+
+Once all the above checks pass, your kernel is ready.
 
 ---
 
@@ -251,9 +214,9 @@ It gives us:
 ```bash
 mkdir -p ~/src
 cd ~/src
-wget https://busybox.net/downloads/busybox-1.36.1.tar.bz2
-tar -xjf busybox-1.36.1.tar.bz2
-cd busybox-1.36.1
+wget https://busybox.net/downloads/busybox-1.37.0.tar.bz2
+tar -xjf busybox-1.37.0.tar.bz2
+cd busybox-1.37.0
 ```
 
 ### 4.2 Configure a static build
