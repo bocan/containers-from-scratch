@@ -191,8 +191,8 @@ Should display:
 nodev   overlay
 ```
 
-If it's not there, it's not nessesarily a problem as it may be built as a kernel
-modeule that doesn't load until needed. Try running `sudo modprobe overlay` and
+If it's not there, it's not necessarily a problem as it may be built as a kernel
+module that doesn't load until needed. Try running `sudo modprobe overlay` and
 checking again.  If it's there now, you're good to go.
 
 Once all the above checks pass, your kernel is ready.
@@ -225,17 +225,11 @@ cd busybox-1.37.0
 make defconfig
 ```
 
-Now enable static linking:
+Now enable static linking and turn off a feature that may not compile cleanly:
 
 ```bash
-sed -i 's/.*CONFIG_STATIC.*/CONFIG_STATIC=y/' .config
-```
-
-Or run:
-
-```bash
-make menuconfig
-# Busybox Settings → Build Options → Build Static Binary
+sed -i 's/.*CONFIG_STATIC is not set/CONFIG_STATIC=y/' .config
+sed -i 's/CONFIG_TC=y/# CONFIG_TC is not set/' .config
 ```
 
 ### 4.3 Build it
@@ -243,6 +237,9 @@ make menuconfig
 ```bash
 make -j$(nproc)
 ```
+
+(Busybox is surprisingly buggy to compile.  Ignore the warning and let me know
+if you hit other issues.)
 
 ### 4.4 Install to a rootfs directory
 

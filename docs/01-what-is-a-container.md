@@ -23,7 +23,63 @@ Every container tool you’ve ever used—Docker, Podman, containerd, runc, CRI-
 
 ---
 
-## Why Containers Matter
+## A Brief History of Containers
+
+Container ideas stretch back more than 40 years. Modern Linux containers are the product of decades of work on process isolation and resource control across many Unix systems.
+
+### **1979 — Unix chroot**
+- First filesystem isolation mechanism
+- Foundation for the “rootfs” concept
+
+### **2000 — FreeBSD Jails**
+- Extended chroot with process, network, and hostname isolation
+- First true “container-like” environment
+
+### **2004 — Solaris Zones**
+- Full OS‑level virtualization
+- Secure, lightweight, production-ready
+- Massive influence on later systems
+
+### **2006–2008 — Linux catches up (VServer, OpenVZ)**
+- Early container-like patchsets
+- Precursor to LXC and CRIU
+
+### **2006 — Google invents cgroups**
+- Originally called “process containers”
+- CPU, memory, IO, pids resource control
+
+### **2002–2013 — Linux Namespaces mature**
+- Mount, PID, IPC, UTS, network, and user namespaces
+- User namespace (2013) completes the set
+
+### **2008 — LXC (Linux Containers)**
+- First cohesive userspace tooling for Linux containers
+- Direct precursor to Docker
+
+### **2013 — Docker revolution**
+Docker didn’t invent containers — it made them:
+- Easy
+- Portable
+- Shareable
+- Layered
+- Developer-friendly
+
+### **2015–2016 — containerd, runc, OCI**
+- Docker modularizes
+- Runtime spec & image spec become industry standards
+- Kubernetes adopts OCI and CRI
+
+### **2017+ — Kubernetes era**
+- containerd dominates
+- Podman, CRI‑O, Buildah, and others mature
+
+### 2021/2022 - Docker Licensing Changes
+- Docker Desktop changes licensing model for commercial use
+- Drives interest in alternatives like Podman and containerd
+
+---
+
+## So Why Do Containers Matter
 
 Containers became popular because they solve real problems:
 
@@ -41,6 +97,6 @@ This project removes guesswork.
 
 ## Next Steps
 
-Come along now.  Let's get our hands dirty.
+Come along now. Let's get our hands dirty.
 
-👉 **[Chapter 2 — Preparing Your Lab Environment](02-preparing-environment.md)
+👉 **[Chapter 2 — Preparing Your Lab Environment](02-preparing-environment.md)**
