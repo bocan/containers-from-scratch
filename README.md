@@ -1,8 +1,13 @@
 # Containers From Scratch
 ### *A deep, hands-on journey into the core of modern container technology.*
 
-> The Main Site is https://bocan.github.io/containers-from-scratch/ and the open
-> source repo is at https://github.com/bocan/containers-from-scratch.
+> The Main Site is [https://bocan.github.io/containers-from-scratch/](https://bocan.github.io/containers-from-scratch/) and the open
+> source repo is at [https://github.com/bocan/containers-from-scratch](https://github.com/bocan/containers-from-scratch).
+
+> This project is inspired by [Linux From Scratch](http://www.linuxfromscratch.org/),
+> which teaches you how to build a Linux system from the ground up.
+
+> It's *VERY* much a work in progress. If you'd like to contribute, please open an issue or PR!
 
 ---
 
