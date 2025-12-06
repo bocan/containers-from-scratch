@@ -1,4 +1,4 @@
-## Chapter 1 — What *Is* a Container (Really)?
+# Chapter 1 — What *Is* a Container (Really)?
 
 Containers are one of the most widely used technologies in modern computing. They power cloud platforms, microservices architectures, CI/CD pipelines, edge devices, local development environments, and nearly every Kubernetes cluster in production today.
 
@@ -79,7 +79,7 @@ Docker didn’t invent containers — it made them:
 
 ---
 
-## So Why Do Containers Matter
+## So Why Do Containers Matter?
 
 Containers became popular because they solve real problems:
 

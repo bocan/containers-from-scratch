@@ -149,7 +149,7 @@ Build an OCI-like runtime in Go or C that launches containers end-to-end.
 ### **10. Understanding OCI, runc, containerd, and Kubernetes**
 Map everything you built to the real-world container ecosystem.
 
-### **11. Optional Advanced Chapters**
+### **11. Optional Advanced Topics**
 Rootless containers, snapshotting, seccomp generators, and more.
 
 ---
@@ -188,4 +188,4 @@ Each chapter includes:
 
 Whenever you're ready, let's move on to:
 
-👉 **[Chapter 1 — An Introduction to Containers](docs/01-what-is-a-container.md)
+👉 **[Chapter 1 — An Introduction to Containers](docs/01-what-is-a-container.md)**

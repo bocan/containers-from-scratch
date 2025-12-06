@@ -176,7 +176,7 @@ If this file exists, you’re good.
 - organize processes into groups
 - configure controllers (CPU, memory, IO, pids, etc.)
 
-We will delve into cgroups more in Chapter 2, but for now, know that it's a
+We will delve into cgroups more in Chapter 2 and 5, but for now, know that it's a
 control API, not a real filesystem and it lets you apply limits.
 
 ## 3.3 OverlayFS
@@ -309,25 +309,7 @@ This is intentional — next chapters fix this.
 
 # 7. Diagram: What We Have Built So Far
 
-```mermaid
-flowchart TD
-
-A[Kernel] --> B(cgroup2 Virtual Filesystem)
-B --> C(/sys/fs/cgroup)
-C --> D(mycontainer/)
-flowchart TD
-
-style A fill:#222
-color:#eee
-stroke:#555
-
-style E fill:#1e6
-stroke:#0a0
-color:#fff
-
-style D fill:#444
-color:#eee
-```
+Todo: add diagram here...
 
 ---
 

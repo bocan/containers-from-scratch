@@ -301,3 +301,5 @@ This will serve as your real container filesystem when we introduce **mount name
 
 **[04 — Namespaces: Teaching the Kernel to Lie](04-namespaces.md)**
 This is where the magic really begins.
+
+👉 **[Chapter 1 — An Introduction to Containers](docs/01-what-is-a-container.md)
